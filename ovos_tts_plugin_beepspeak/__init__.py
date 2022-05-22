@@ -3,11 +3,6 @@ from os.path import join, dirname
 from ovos_plugin_manager.templates.tts import ConcatTTS, TTSValidator
 from ovos_utils.log import LOG
 
-try:
-    import phoneme_guesser
-except ImportError:
-    phoneme_guesser = None
-
 
 class BeepSpeak(ConcatTTS):
     def __init__(self, *args, **kwargs):
@@ -23,8 +18,8 @@ class BeepSpeak(ConcatTTS):
         self.channels = self.config.get("channels", "1")
         self.rate = self.config.get("rate", "16000")
         self.lang = self.config.get("lang", "en-us")
-        self.sound_files_path = self.config.get(
-            "sounds", join(dirname(__file__), "res", "droid"))
+        self.sound_files_path = self.config.get("sounds",
+                                                join(dirname(__file__), "res", "droid"))
 
     def sentence_to_files(self, sentence):
         phonemes = None
