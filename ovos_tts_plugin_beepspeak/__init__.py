@@ -56,3 +56,10 @@ class BeepSpeakValidator(TTSValidator):
 
     def get_tts_class(self):
         return BeepSpeak
+
+
+BeepSpeakTTSPluginConfig = {
+    lang: [
+        {"voice": "r2d2", "gender": "neutral", "display_name": "R2D2"}
+    ] for lang in ["en", "es", "pt", "it", "fr", "de", "nl", "uk", "ru"]
+}

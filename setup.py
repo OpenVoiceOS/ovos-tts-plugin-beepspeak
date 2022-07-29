@@ -2,9 +2,11 @@
 from setuptools import setup
 
 PLUGIN_ENTRY_POINT = 'ovos-tts-plugin-beepspeak = ovos_tts_plugin_beepspeak:BeepSpeak'
+SAMPLE_CONFIGS = 'ovos-tts-plugin-beepspeak.config = ovos_tts_plugin_beepspeak:BeepSpeakTTSPluginConfig'
+
 setup(
     name='ovos-tts-plugin-beepspeak',
-    version='0.0.1a1',
+    version='0.0.1',
     description='droid tts plugin for OpenVoiceOS/Mycroft/Chatterbox/Neon',
     url='',
     author='JarbasAi',
@@ -22,5 +24,6 @@ setup(
         'Programming Language :: Python :: 3'
     ],
     keywords='OpenVoiceOS mycroft chatterbox ovos plugin tts',
-    entry_points={'mycroft.plugin.tts': PLUGIN_ENTRY_POINT}
+    entry_points={'mycroft.plugin.tts': PLUGIN_ENTRY_POINT,
+                  'mycroft.plugin.tts.config': SAMPLE_CONFIGS}
 )
