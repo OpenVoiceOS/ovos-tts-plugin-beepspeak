@@ -60,6 +60,10 @@ class BeepSpeakValidator(TTSValidator):
 
 BeepSpeakTTSPluginConfig = {
     lang: [
-        {"voice": "r2d2", "gender": "neutral", "display_name": "R2D2", "offline": True, "priority": 100}
+        {"voice": "r2d2",
+         "meta": {"gender": "neutral",
+                  "display_name": "R2D2",
+                  "offline": True,
+                  "priority": 100}}
     ] for lang in ["en"]  # TODO, do we want to spam this in every lang? add a special lang code for "any" ?
 }
