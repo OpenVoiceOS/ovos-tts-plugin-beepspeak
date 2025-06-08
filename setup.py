@@ -13,7 +13,7 @@ setup(
     author_email='jarbasai@mailfence.com',
     license='Apache-2.0',
     packages=['ovos_tts_plugin_beepspeak'],
-    install_requires=["requests", 'ovos-plugin-manager>=0.0.1a4'],
+    install_requires=["requests", 'ovos-plugin-manager>=0.0.1'],
     zip_safe=True,
     include_package_data=True,
     classifiers=[

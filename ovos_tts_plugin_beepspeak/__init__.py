@@ -1,6 +1,7 @@
 from os.path import join, dirname
 
 from ovos_plugin_manager.templates.tts import ConcatTTS, TTSValidator
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
 
 
@@ -48,6 +49,16 @@ class BeepSpeak(ConcatTTS):
                     self.sound_files_path + "/" + char.upper() + '_beep.' +
                     self.audio_ext)
         return files
+
+    @classproperty
+    def available_languages(cls) -> set:
+        """Return languages supported by this TTS implementation in this state
+        This property should be overridden by the derived class to advertise
+        what languages that engine supports.
+        Returns:
+            set: supported languages
+        """
+        return set()
 
 
 class BeepSpeakValidator(TTSValidator):
