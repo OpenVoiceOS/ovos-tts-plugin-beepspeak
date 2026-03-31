@@ -33,7 +33,7 @@ jobs:
           tags: |
             type=ref,event=branch
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@c5117b60bc829f00aaacb038e99de2712bee6e6e
         with:
           context: .
           file: Dockerfile
