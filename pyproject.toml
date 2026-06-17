@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos-tts-plugin-beepspeak"
+dynamic = ["version"]
+description = "droid tts plugin for OpenVoiceOS/Mycroft/Chatterbox/Neon"
+readme = "Readme.md"
+license = "Apache-2.0"
+authors = [
+    { name = "JarbasAi", email = "jarbasai@mailfence.com" },
+]
+keywords = ["OpenVoiceOS", "mycroft", "chatterbox", "ovos", "plugin", "tts"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Text Processing :: Linguistic",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    "ovos-plugin-manager>=2.1.0,<3.0.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "ovoscope[tts]",
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak"
+
+[project.entry-points."opm.tts"]
+"ovos-tts-plugin-beepspeak" = "ovos_tts_plugin_beepspeak:BeepSpeak"
+
+[project.entry-points."opm.tts.config"]
+"ovos-tts-plugin-beepspeak.config" = "ovos_tts_plugin_beepspeak:BeepSpeakTTSPluginConfig"
+
+[tool.setuptools.dynamic]
+version = { attr = "ovos_tts_plugin_beepspeak.version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ovos_tts_plugin_beepspeak*"]
+
+[tool.setuptools.package-data]
+"ovos_tts_plugin_beepspeak" = ["res/*", "res/**/*"]
