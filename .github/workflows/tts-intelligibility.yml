@@ -17,3 +17,6 @@ jobs:
       max_wer: '0.5'
       pre_release: true
       system_deps: ''
+      # beepspeak is a novelty engine: it emits R2D2-style beeps, not words, so the
+      # STT round-trip WER is legitimately ~1.0. Report the real score, don't fail.
+      warn_only: true
