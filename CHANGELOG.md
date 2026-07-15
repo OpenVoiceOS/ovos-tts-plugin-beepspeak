@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/tree/0.1.0a1) (2026-07-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/compare/0.0.2a1...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat: serve BeepSpeak via ovos-tts-server docker image [\#17](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.2a1](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/tree/0.0.2a1) (2026-06-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/compare/4748700fd814b38c6e64e896205d99fdce7d3010...0.0.2a1)
