@@ -1,0 +1,16 @@
+services:
+  beepspeak:
+    image: ghcr.io/openvoiceos/ovos-tts-plugin-beepspeak:latest
+    # …or build locally: build: .
+    container_name: beepspeak
+    restart: unless-stopped
+    ports:
+      - "9666:9666"
+    # optional: override the served voice
+    # environment: {}  # (voice is a build arg; rebuild with --build-arg BEEP_VOICE=r2d2)
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9666/status')"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
