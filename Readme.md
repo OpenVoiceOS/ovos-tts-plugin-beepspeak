@@ -25,17 +25,37 @@ pip install ovos-tts-plugin-beepspeak
 
 ## Docker
 
-build it
+Serve the voice behind [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-server)
+(ElevenLabs-compatible API) on port 9666. The image is fully self-contained and
+offline — the beep samples ship inside the package, so no network or model download is
+needed at runtime.
+
+Pull the prebuilt image:
+
 ```bash
-docker build . -t ovos/beepspeak
+docker run -p 9666:9666 ghcr.io/openvoiceos/ovos-tts-plugin-beepspeak:dev
 ```
 
-run it
+…or build locally:
+
 ```bash
-docker run -p 8080:9666 ovos/beepspeak
+docker build -t ovos-tts-plugin-beepspeak .
+docker run -p 9666:9666 ovos-tts-plugin-beepspeak
 ```
 
-use it `http://localhost:8080/synthesize/hello`
+…or with compose:
+
+```bash
+docker compose up
+```
+
+Synthesize: `http://localhost:9666/synthesize/hello`
+
+The served voice defaults to `r2d2` and can be changed at build time:
+
+```bash
+docker build --build-arg BEEP_VOICE=r2d2 -t ovos-tts-plugin-beepspeak .
+```
 
 
 ### Notes
