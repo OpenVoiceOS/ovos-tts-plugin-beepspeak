@@ -1,8 +1,9 @@
-# beep speak TTS
+# ovos-tts-plugin-beepspeak
 
-## Description
-
-OpenVoiceOS R2D2 TTS plugin 
+A text-to-speech plugin for [OVOS](https://github.com/OpenVoiceOS) that speaks in R2D2-style
+beeps instead of words. It maps each letter, digit, and a few punctuation marks to a beep
+sound file, then concatenates the files into one audio stream. It works fully offline
+because the beep samples ship inside the package.
 
 ## Install
 
@@ -12,6 +13,7 @@ pip install ovos-tts-plugin-beepspeak
 
 ## Configuration
 
+Add this to your OVOS TTS configuration:
 
 ```json
   "tts": {
@@ -22,13 +24,15 @@ pip install ovos-tts-plugin-beepspeak
  }
 ```
 
+`time_step` sets the length of the silence between beeps, in seconds. Valid values range
+from 0.1 to 0.7. The plugin clamps out-of-range values to the nearest limit.
 
 ## Docker
 
 Serve the voice behind [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-server)
-(ElevenLabs-compatible API) on port 9666. The image is fully self-contained and
-offline — the beep samples ship inside the package, so no network or model download is
-needed at runtime.
+(an ElevenLabs-compatible API) on port 9666. The image is self-contained and offline. The
+beep samples ship inside the package, so the server needs no network access or model
+download at runtime.
 
 Pull the prebuilt image:
 
@@ -36,30 +40,37 @@ Pull the prebuilt image:
 docker run -p 9666:9666 ghcr.io/openvoiceos/ovos-tts-plugin-beepspeak:dev
 ```
 
-…or build locally:
+Or build it locally:
 
 ```bash
 docker build -t ovos-tts-plugin-beepspeak .
 docker run -p 9666:9666 ovos-tts-plugin-beepspeak
 ```
 
-…or with compose:
+Or run it with compose:
 
 ```bash
 docker compose up
 ```
 
-Synthesize: `http://localhost:9666/synthesize/hello`
+Synthesize a phrase: `http://localhost:9666/synthesize/hello`
 
-The served voice defaults to `r2d2` and can be changed at build time:
+The served voice defaults to `r2d2`. Change it at build time:
 
 ```bash
 docker build --build-arg BEEP_VOICE=r2d2 -t ovos-tts-plugin-beepspeak .
 ```
 
+### History
 
-### Notes
+For a period, development moved to a fork under the chatterbox repositories. The code here
+was last synchronized with [chatterbox-droid-tts==0.0.1a1](https://pypi.org/project/chatterbox-droid-tts/0.0.1a1).
 
-For a period of time development was migrated to a fork on chatterbox repositories
+## Related projects
 
-code was last synchronized with [chatterbox-droid-tts==0.0.1a1](https://pypi.org/project/chatterbox-droid-tts/0.0.1a1)
+- [OpenVoiceOS](https://github.com/OpenVoiceOS) — the voice assistant platform this plugin
+  extends.
+- [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-server) — serves this plugin
+  over an ElevenLabs-compatible HTTP API.
+- [ovos-plugin-manager](https://github.com/OpenVoiceOS/ovos-plugin-manager) — the plugin
+  interface this TTS engine implements.
