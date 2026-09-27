@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1a1](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/tree/0.1.1a1) (2026-09-27)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/compare/0.1.0a3...0.1.1a1)
+
+**Merged pull requests:**
+
+- fix\(ci\): bump the checkout actionlint rejects in publish\_docker.yml [\#24](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/pull/24) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.0a3](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/tree/0.1.0a3) (2026-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-beepspeak/compare/0.1.0a2...0.1.0a3)
