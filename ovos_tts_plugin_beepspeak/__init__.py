@@ -1,6 +1,7 @@
 from os.path import join, dirname
 
 from ovos_plugin_manager.templates.tts import ConcatTTS, TTSValidator
+from ovos_utils import classproperty
 from ovos_utils.log import LOG
 
 
@@ -49,6 +50,16 @@ class BeepSpeak(ConcatTTS):
                     self.audio_ext)
         return files
 
+    @classproperty
+    def available_languages(cls) -> set:
+        """Return languages supported by this TTS implementation in this state
+        This property should be overridden by the derived class to advertise
+        what languages that engine supports.
+        Returns:
+            set: supported languages
+        """
+        return set()
+
 
 class BeepSpeakValidator(TTSValidator):
     def __init__(self, tts):
@@ -56,3 +67,14 @@ class BeepSpeakValidator(TTSValidator):
 
     def get_tts_class(self):
         return BeepSpeak
+
+
+BeepSpeakTTSPluginConfig = {
+    lang: [
+        {"voice": "r2d2",
+         "meta": {"gender": "neutral",
+                  "display_name": "R2D2",
+                  "offline": True,
+                  "priority": 100}}
+    ] for lang in ["en"]  # TODO, do we want to spam this in every lang? add a special lang code for "any" ?
+}
