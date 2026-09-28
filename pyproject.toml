@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "ovos-tts-plugin-beepspeak"
 dynamic = ["version"]
 description = "droid tts plugin for OpenVoiceOS/Mycroft/Chatterbox/Neon"
-readme = "Readme.md"
+readme = "README.md"
 license = "Apache-2.0"
 authors = [
     { name = "JarbasAi", email = "jarbasai@mailfence.com" },
