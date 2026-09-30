@@ -3,7 +3,7 @@
 # ship inside the package, so no network and no model download are needed at runtime.
 # Any client that speaks the ovos-tts-server / ElevenLabs API can hit it, and it can be
 # A/B-tested against other ovos-tts-server voices by pointing at a different port.
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # sox concatenates the bundled beep samples into the final WAV; libsndfile1 backs it.
 RUN apt-get update && apt-get install -y --no-install-recommends \
